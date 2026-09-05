@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Linki & Donejty</title>
+    <style>
+        :root {
+            --bg-color: #0d0d13;
+            --neon-cyan: #00f3ff;
+            --neon-magenta: #ff0055;
+            --neon-purple: #b026ff;
+            --text-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 100vh; overflow-x: hidden;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%; max-width: 450px;
+            text-align: center; padding: 20px; box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; color: #fff;
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+            margin-bottom: 30px; user-select: none;
+        }
+
+        .links-container { display: flex; flex-direction: column; gap: 20px; }
+
+        .link-btn {
+            display: flex; align-items: center; justify-content: center;
+            padding: 16px; font-size: 1.1rem; font-weight: bold;
+            text-decoration: none; color: #fff;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--neon-purple); border-radius: 12px;
+            box-shadow: 0 0 10px rgba(176, 38, 255, 0.2), inset 0 0 10px rgba(176, 38, 255, 0.2);
+            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .link-btn:hover {
+            box-shadow: 0 0 20px var(--neon-purple), inset 0 0 15px var(--neon-purple);
+            text-shadow: 0 0 5px #fff; transform: translateY(-3px);
+        }
+
+        #donate-btn {
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.2), inset 0 0 10px rgba(255, 0, 85, 0.2);
+        }
+
+        #donate-btn:hover { box-shadow: 0 0 25px var(--neon-magenta), inset 0 0 20px var(--neon-magenta); }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <div class="container">
+        <h1>Live Links</h1>
+
+        <div class="links-container">
+            <a href="#" id="donate-btn" class="link-btn" target="_blank">🔥 Donejty (Tipply) 🔥</a>
+            <a href="#" id="link1-btn" class="link-btn" target="_blank">YouTube</a>
+            <a href="#" id="link2-btn" class="link-btn" target="_blank">TikTok</a>
+            <a href="#" id="link3-btn" class="link-btn" target="_blank">Discord</a>
+            <a href="#" id="link4-btn" class="link-btn" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <script>
+        // =======================================================
+        // 🛠️ TUTAJ WYBIERASZ AKTYWNE TIPPLY PRZED LIVEM (1, 2 lub 3)
+        // =======================================================
+        const AKTYWNE_TIPPLY = 1; 
+
+        // --- WPISZ SWOJE STRONY ---
+        const URLS = {
+            link1: "https://youtube.com/@interactivers",
+            link2: "https://tiktok.com/@wrozbita_damian",
+            link3: "https://discord.gg",
+            link4: "https://instagram.com",
+
+            // Trzy różne Tipply:
+            tipply1: "https://tipply.pl/interactivers",
+            tipply2: "https://tipply.pl/interactivel",
+            tipply3: "https://tipply.pl/interactivels"
+        };
+
+        // --- LOGIKA PRZEKIEROWANIA ---
+        document.getElementById('link1-btn').href = URLS.link1;
+        document.getElementById('link2-btn').href = URLS.link2;
+        document.getElementById('link3-btn').href = URLS.link3;
+        document.getElementById('link4-btn').href = URLS.link4;
+
+        if (AKTYWNE_TIPPLY === 1) document.getElementById('donate-btn').href = URLS.tipply1;
+        if (AKTYWNE_TIPPLY === 2) document.getElementById('donate-btn').href = URLS.tipply2;
+        if (AKTYWNE_TIPPLY === 3) document.getElementById('donate-btn').href = URLS.tipply3;
+    </script>
+</body>
+</html>
